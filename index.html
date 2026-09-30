@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sala em Dia | Sala de Informática</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="topo">
+    <div class="marca">
+      <span class="marca-risco">///</span>
+      <span>SALA<br>EM DIA</span>
+    </div>
+    <button class="menu-btn" aria-label="Abrir menu">☰</button>
+    <nav class="menu">
+      <a href="#inicio">Início</a>
+      <a href="#horarios">Horários</a>
+      <a href="#reservas">Reservas</a>
+      <a href="#monitores">Monitores</a>
+      <a href="#info">Informações</a>
+    </nav>
+  </header>
+
+  <main>
+    <!-- Abertura: explica o site rapidamente. -->
+    <section id="inicio" class="hero">
+      <div class="recorte recorte-azul">SALA DE<br>INFORMÁTICA</div>
+      <div class="hero-text">
+        <p class="etiqueta">CONSULTE • ORGANIZE • PARTICIPE</p>
+        <h1>Seu estudo.<br><span>Seu horário.</span></h1>
+        <p>Veja quando a sala está aberta, quantos computadores estão livres e quem pode ajudar.</p>
+        <a class="botao botao-amarelo" href="#horarios">VER HORÁRIOS ↓</a>
+      </div>
+      <div class="megafone">◖)))</div>
+    </section>
+
+    <!-- Resumo rápido da situação atual. -->
+    <section class="resumo">
+      <article><strong id="livres">12</strong><span>computadores livres</span></article>
+      <article><strong id="ocupados">3</strong><span>em uso agora</span></article>
+      <article><strong>13h–17h</strong><span>sala aberta hoje</span></article>
+    </section>
+
+    <!-- Horários e computadores. -->
+    <section id="horarios" class="secao">
+      <div class="titulo-secao">
+        <span class="numero">01</span>
+        <div>
+          <p class="etiqueta">QUANDO POSSO IR?</p>
+          <h2>Horários & computadores</h2>
+        </div>
+      </div>
+
+      <div class="filtro">
+        <label for="dia">Escolha o dia</label>
+        <select id="dia">
+          <option>Hoje — quarta-feira</option>
+          <option>Amanhã — quinta-feira</option>
+          <option>Sexta-feira</option>
+        </select>
+      </div>
+
+      <div class="grade-horarios">
+        <div class="horario-card disponivel">
+          <span>13:00 — 14:00</span>
+          <strong>10 livres</strong>
+          <small>Professor presente</small>
+          <button class="link-reserva" data-horario="13:00 — 14:00">Reservar →</button>
+        </div>
+        <div class="horario-card disponivel">
+          <span>14:00 — 15:00</span>
+          <strong>7 livres</strong>
+          <small>Funcionário presente</small>
+          <button class="link-reserva" data-horario="14:00 — 15:00">Reservar →</button>
+        </div>
+        <div class="horario-card lotado">
+          <span>15:00 — 16:00</span>
+          <strong>0 livres</strong>
+          <small>Todos ocupados</small>
+          <button class="link-reserva" disabled>Lotado</button>
+        </div>
+        <div class="horario-card disponivel">
+          <span>16:00 — 17:00</span>
+          <strong>8 livres</strong>
+          <small>Sem monitor</small>
+          <button class="link-reserva" data-horario="16:00 — 17:00">Reservar →</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- Reservas: funciona como protótipo no navegador. -->
+    <section id="reservas" class="secao secao-vermelha">
+      <div class="titulo-secao claro">
+        <span class="numero">02</span>
+        <div>
+          <p class="etiqueta">ORGANIZE SEU ESTUDO</p>
+          <h2>Faça uma reserva</h2>
+        </div>
+      </div>
+
+      <form id="form-reserva" class="formulario">
+        <label>Seu nome
+          <input id="nome" type="text" placeholder="Como podemos chamar você?" required>
+        </label>
+        <label>Horário
+          <select id="horario-reserva" required>
+            <option value="">Escolha um horário</option>
+            <option>13:00 — 14:00</option>
+            <option>14:00 — 15:00</option>
+            <option>16:00 — 17:00</option>
+          </select>
+        </label>
+        <label>O que você precisa?
+          <select id="tipo-reserva">
+            <option>Qualquer computador</option>
+            <option>Um computador específico</option>
+          </select>
+        </label>
+        <button class="botao botao-amarelo" type="submit">CONFIRMAR RESERVA</button>
+        <p id="mensagem-reserva" class="mensagem"></p>
+      </form>
+      <p class="aviso-demo">Protótipo: nesta versão, a reserva fica salva apenas neste navegador. Para reservas reais compartilhadas por toda a escola, será necessário conectar o site a um sistema de dados.</p>
+    </section>
+
+    <!-- Monitores e voluntariado. -->
+    <section id="monitores" class="secao">
+      <div class="titulo-secao">
+        <span class="numero">03</span>
+        <div>
+          <p class="etiqueta">QUEM PODE AJUDAR?</p>
+          <h2>Monitores</h2>
+        </div>
+      </div>
+
+      <div class="monitor-lista">
+        <article class="monitor">
+          <div class="avatar">P</div>
+          <div><strong>Professor / funcionário</strong><span>13h às 15h</span></div>
+          <b>● disponível</b>
+        </article>
+        <article class="monitor">
+          <div class="avatar">A</div>
+          <div><strong>Aluno monitor</strong><span>14h às 15h</span></div>
+          <b>● disponível</b>
+        </article>
+      </div>
+
+      <button class="botao botao-preto" id="btn-voluntario">QUERO SER MONITOR +</button>
+      <p id="mensagem-monitor" class="mensagem"></p>
+    </section>
+
+    <!-- Informações e regras. -->
+    <section id="info" class="secao info">
+      <div class="titulo-secao">
+        <span class="numero">04</span>
+        <div>
+          <p class="etiqueta">ANTES DE USAR</p>
+          <h2>Informações</h2>
+        </div>
+      </div>
+
+      <div class="regras">
+        <p><b>01.</b> Use o computador para estudo e atividades da escola.</p>
+        <p><b>02.</b> Respeite o horário reservado para que todos possam usar a sala.</p>
+        <p><b>03.</b> Se precisar de ajuda, confira se há um monitor disponível.</p>
+        <p><b>04.</b> Ao terminar, deixe o computador organizado para a próxima pessoa.</p>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <strong>SALA EM DIA</strong>
+    <span>Feito pela comunidade escolar ✦</span>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>
